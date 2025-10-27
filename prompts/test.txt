@@ -5,7 +5,8 @@ patient 0xf2F830C0fc4351440281f7c62a2CDBddfC2938a5
 ALL THIS ACCOUNTS ARE FULLY ONBOARDED 
 and PKs available on .env file
 and AES_KEY for encryption and ecryption of meddical records also on .env files
-create integration test for EncryptedMedicalRecords smart contract on Testnet 
+
+create a HARDHAT integration test for EncryptedMedicalRecords smart contract on Testnet 
 using coti-ethers for encryption everywhere its needed
 consider this example 
 https://docs.coti.io/coti-documentation/build-on-coti/guides/sending-a-transaction-with-encrypted-inputs
