@@ -1,15 +1,40 @@
-given admin 0xe45FC1a7D84e73C8c71EdF2814E7467F7C86a8A2 and 
-doctor  0x9690a2fd1452f284619244B1ba5e0d31C0d497C1 
-doctor2 0x559A3CbB119296fa46d53D61af9Aea35f30E56Fe
-patient 0xf2F830C0fc4351440281f7c62a2CDBddfC2938a5
-ALL THIS ACCOUNTS ARE FULLY ONBOARDED 
-and PKs available on .env file
-and AES_KEY for encryption and ecryption of meddical records also on .env files
+Given these FULLY ONBOARDED accounts on COTI Testnet:
+- admin:   0xe45FC1a7D84e73C8c71EdF2814E7467F7C86a8A2 (ADMIN_PK, ADMIN_AES_KEY in .env)
+- doctor:  0x9690a2fd1452f284619244B1ba5e0d31C0d497C1 (DOCTOR_PK, DOCTOR_AES_KEY in .env)
+- doctor2: 0x559A3CbB119296fa46d53D61af9Aea35f30E56Fe (DOCTOR2_PK, DOCTOR2_AES_KEY in .env)
+- patient: 0xf2F830C0fc4351440281f7c62a2CDBddfC2938a5 (PATIENT_PK, PATIENT_AES_KEY in .env)
 
-create a HARDHAT integration test for EncryptedMedicalRecords smart contract on Testnet 
-using coti-ethers for encryption everywhere its needed
-consider this example 
-https://docs.coti.io/coti-documentation/build-on-coti/guides/sending-a-transaction-with-encrypted-inputs
+Create a HARDHAT integration test for EncryptedMedicalRecords smart contract on COTI Testnet.
+
+CRITICAL REQUIREMENTS:
+1. Use standard ethers library (require('ethers')), NOT Hardhat's wrapper
+   - Import: const hre = require('hardhat'); const { ethers } = require('ethers');
+   - Use hre.ethers ONLY for getContractFactory()
+   - Use standard ethers for providers, wallets, and signers
+
+2. Create explicit JsonRpcProvider:
+   const provider = new ethers.JsonRpcProvider(
+     'https://testnet.coti.io/rpc',
+     { chainId: 7082400, name: 'coti-testnet' }
+   );
+
+3. Use buildInputText from @coti-io/coti-sdk-typescript for encryption:
+   - Follow pattern from: https://docs.coti.io/coti-documentation/build-on-coti/guides/sending-a-transaction-with-encrypted-inputs
+   - Function selector for addMedicalRecord: VERIFY IT
+   - Convert signature: ethers.hexlify(encryptedInput.signature)
+
+4. For error handling, use try/catch blocks, NOT chai matchers like .to.be.reverted
+
+
+Test Coverage Required:
+- Doctor registration (admin only)
+- Patient authorization management
+- Adding encrypted medical records (doctors only)
+- Accessing records (authorized users only)
+- Authorization revocation
+- Access control enforcement (negative tests)
+
+--------------
 
 install solhint
 % will do lots of configs for us
