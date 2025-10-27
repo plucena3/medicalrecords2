@@ -1,4 +1,13 @@
-Create a hardhat script to deploy EncryptedMedicalRecords.sol smart contract on COTI Testnet 
-RPC URL: https://testnet.coti.io/rpc Chain ID: 7082400. 
-Explorer: https://testnet.cotiscan.io
-Use coti ethers and ADMIN account on env file to deploy
+Create a hardhat deployment script (scripts/deploy.js) for EncryptedMedicalRecords.sol 
+to deploy on COTI Testnet using the existing network configuration 'coti-testnet'.
+
+Network details:
+- RPC URL: https://testnet.coti.io/rpc
+- Chain ID: 7082400
+- Explorer: https://testnet.cotiscan.io
+- Network name in config: 'coti-testnet'
+
+Requirements:
+- Use the ADMIN_PK environment variable for the deployer account
+- Set manual gasLimit (5000000) to avoid pending block RPC errors
+- Display deployment info including contract address and explorer link
