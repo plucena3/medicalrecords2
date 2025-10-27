@@ -1,0 +1,4 @@
+Create a hardhat script to deploy EncryptedMedicalRecords.sol smart contract on COTI Testnet 
+RPC URL: https://testnet.coti.io/rpc Chain ID: 7082400. 
+Explorer: https://testnet.cotiscan.io
+Use coti ethers and ADMIN account on env file to deploy

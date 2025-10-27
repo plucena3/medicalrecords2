@@ -1,0 +1,41 @@
+{
+  "name": "medical-records-contracts",
+  "version": "1.0.0",
+  "description": "Encrypted Medical Records Smart Contracts",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy:coti": "hardhat run scripts/deploy.js --network coti-testnet",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "onboard-accounts": "node scripts/onboard-accounts.js",
+    "demo:fhe": "node scripts/demo-coti-fhe.js",
+    "test:encrypted": "node scripts/test-encrypted-values.js",
+    "lint": "solhint 'contracts/**/*.sol' 'encrypted_medical_records/**/*.sol' 'interfaces/**/*.sol' 'mocks/**/*.sol'",
+    "lint:fix": "solhint 'contracts/**/*.sol' 'encrypted_medical_records/**/*.sol' 'interfaces/**/*.sol' 'mocks/**/*.sol' --fix"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "hardhat",
+    "coti",
+    "medical-records"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "hardhat": "^2.20.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solhint": "^6.0.1",
+    "solidity-coverage": "^0.8.5"
+  },
+  "dependencies": {
+    "@coti-io/coti-contracts": "^0.1.0",
+    "@coti-io/coti-ethers": "^1.0.5",
+    "@openzeppelin/contracts": "^4.9.3",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0"
+  }
+}
