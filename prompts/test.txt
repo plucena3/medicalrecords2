@@ -3,6 +3,7 @@ doctor  0x9690a2fd1452f284619244B1ba5e0d31C0d497C1
 doctor2 0x559A3CbB119296fa46d53D61af9Aea35f30E56Fe
 patient 0xf2F830C0fc4351440281f7c62a2CDBddfC2938a5
 and PKs available on .env file
+and AES_KEY for encryption also on .env files
 create integration test for EncryptedMedicalRecords smart contract on Testnet 
 using coti-ethers for encryption everywhere its needed
 consider this example 
